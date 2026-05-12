@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Cyber Portfolio</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial;
+}
+
+body{
+  background:#000;
+  color:white;
+  overflow-x:hidden;
+}
+
+/* animated background grid */
+body::before{
+  content:"";
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:
+    linear-gradient(rgba(0,255,136,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,255,136,0.05) 1px, transparent 1px);
+  background-size:50px 50px;
+  z-index:-1;
+  animation: move 6s linear infinite;
+}
+
+@keyframes move{
+  from{transform:translateY(0)}
+  to{transform:translateY(50px)}
+}
+
+/* main container */
+.container{
+  text-align:center;
+  padding:40px 20px;
+}
+
+/* PROFILE PIC */
+.profile-img{
+  width:180px;
+  height:180px;
+  border-radius:50%;
+  object-fit:cover;
+  margin-top:20px;
+
+  border:3px solid #00ff88;
+  box-shadow: 0 0 15px #00ff88,
+              0 0 35px #00ff88,
+              0 0 60px #00ff88;
+
+  transition:0.4s;
+}
+
+.profile-img:hover{
+  transform:scale(1.1) rotate(5deg);
+  box-shadow: 0 0 25px #00ff88,
+              0 0 60px #00ff88,
+              0 0 100px #00ff88;
+}
+
+/* file input */
+input[type="file"]{
+  margin-top:10px;
+  color:white;
+}
+
+/* name */
+h1{
+  margin-top:15px;
+  font-size:45px;
+  color:#00ff88;
+  text-shadow:0 0 10px #00ff88;
+}
+
+p{
+  opacity:0.8;
+}
+
+/* sections */
+section{
+  width:80%;
+  margin:25px auto;
+  padding:20px;
+  background:rgba(0,255,136,0.05);
+  border:1px solid rgba(0,255,136,0.2);
+  border-radius:15px;
+  backdrop-filter: blur(10px);
+  animation: fade 1.2s ease;
+}
+
+/* skills */
+.skills span{
+  display:inline-block;
+  margin:5px;
+  padding:8px 14px;
+  background:#00ff88;
+  color:black;
+  border-radius:20px;
+  transition:0.3s;
+  font-weight:bold;
+}
+
+.skills span:hover{
+  transform:scale(1.2);
+  background:white;
+}
+
+/* projects */
+.project{
+  margin:10px 0;
+  padding:12px;
+  background:rgba(0,255,136,0.08);
+  border-radius:10px;
+  transition:0.3s;
+  border-left:3px solid #00ff88;
+}
+
+.project:hover{
+  transform:translateX(10px);
+  background:rgba(0,255,136,0.2);
+}
+
+/* button */
+button{
+  padding:12px 25px;
+  border:none;
+  border-radius:25px;
+  cursor:pointer;
+  background:#00ff88;
+  color:black;
+  font-weight:bold;
+  margin-top:10px;
+  transition:0.3s;
+}
+
+button:hover{
+  background:white;
+  transform:scale(1.1);
+}
+
+/* AI BUTTON */
+.ai-btn{
+  position:fixed;
+  top:20px;
+  right:20px;
+  background:#00ff88;
+  border:none;
+  padding:10px 15px;
+  cursor:pointer;
+  font-weight:bold;
+  z-index:999;
+}
+
+/* CHAT BOX */
+#chatBox{
+  position:fixed;
+  top:70px;
+  right:20px;
+  width:320px;
+  height:420px;
+  background:#111;
+  border:2px solid #00ff88;
+  display:none;
+  flex-direction:column;
+  z-index:999;
+}
+
+/* CHAT BODY */
+#chatBody{
+  flex:1;
+  padding:10px;
+  overflow-y:auto;
+}
+
+.msg{ margin:5px 0; }
+.user{ color:#00ff88; }
+.ai{ color:white; }
+
+.inputArea{
+  display:flex;
+}
+
+input{
+  flex:1;
+  padding:10px;
+  border:none;
+  outline:none;
+  background:#222;
+  color:white;
+}
+
+.send{
+  background:#00ff88;
+  border:none;
+  padding:10px;
+  cursor:pointer;
+}
+
+/* animations */
+@keyframes fade{
+  from{opacity:0; transform:translateY(30px)}
+  to{opacity:1; transform:translateY(0)}
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- PROFILE -->
+<div class="container">
+
+  <img id="img" class="profile-img" src="Gemini_Generated_Image_ns3hv5ns3hv5ns3h.png">
+
+  <h1>Shahzaman Khaskheli</h1>
+  <p>| Graphic Designer |</p>
+
+</div>
+
+<section>
+  <h2>ABOUT ME</h2>
+  <p>I am a Graphic designer, Web Developer and specially web designer</p>
+</section>
+
+<section class="skills">
+  <h2>SKILLS</h2>
+  <span>Html with AI help</span>
+  <span>AdobePhotoshop</span>
+  <span>Figma</span>
+  <span>Python</span>
+</section>
+
+<section>
+  <h2>PROJECTS</h2>
+  <div class="project">Youtube clone with prototype</div>
+  <div class="project">Graphic Designs (cards, posts)</div>
+  <div class="project">Web & mobile apps with AI help</div>
+</section>
+
+<section style="text-align:center;">
+  <h2>03364763185</h2>
+  <button onclick="alert('Thanks bro! I will contact you soon 🚀')">
+    Hire Me
+  </button>
+</section>
+
+<!-- AI BUTTON -->
+<button class="ai-btn" onclick="toggleChat()">🤖 AI</button>
+
+<!-- CHAT BOX -->
+<div id="chatBox">
+
+  <div id="chatBody">
+    <div class="msg ai">AI: Hello sir me I help you 😎</div>
+  </div>
+
+  <div class="inputArea">
+    <input id="input" placeholder="Ask something...">
+    <button class="send" onclick="sendMessage()">Send</button>
+  </div>
+
+</div>
+
+<script>
+
+/* MEMORY */
+let memory = {
+  name: "Shahzaman Khaskheli",
+  dob: "06-Feb-2006",
+  location: "Hyderabad, Sindh, Pakistan",
+  qualification: "Intermediate and continue a roll of student",
+  food: "Biryani 🍛",
+  sport: "Cricket 🏏",
+  height: "5.5 Feet"
+};
+
+/* IMAGE */
+function loadImage(event){
+  let img = document.getElementById('img');
+  img.src = URL.createObjectURL(event.target.files[0]);
+}
+
+/* CHAT OPEN */
+function toggleChat(){
+  let box = document.getElementById("chatBox");
+  box.style.display = (box.style.display === "flex") ? "none" : "flex";
+}
+
+/* SPEAK */
+function speak(text){
+  let speech = new SpeechSynthesisUtterance(text);
+  speech.lang = "en-US";
+  window.speechSynthesis.speak(speech);
+}
+
+/* SEND MESSAGE */
+function sendMessage(){
+
+  let input = document.getElementById("input");
+  let chat = document.getElementById("chatBody");
+
+  let text = input.value.trim();
+  if(text === "") return;
+
+  chat.innerHTML += `<div class="msg user">You: ${text}</div>`;
+
+  let reply = getReply(text.toLowerCase());
+
+  setTimeout(()=>{
+
+    chat.innerHTML += `<div class="msg ai">AI: ${reply}</div>`;
+    chat.scrollTop = chat.scrollHeight;
+
+    speak(reply);
+
+  },500);
+
+  input.value = "";
+}
+
+/* ENTER KEY */
+document.addEventListener("keydown", function(e){
+  if(e.key === "Enter"){
+    sendMessage();
+  }
+});
+
+/* AI LOGIC */
+function getReply(msg){
+
+  if(msg.includes("name")) return memory.name;
+
+  if(msg.includes("dob") || msg.includes("born")) return memory.dob;
+
+  if(msg.includes("where")) return memory.location;
+
+  if(msg.includes("qualification")) return memory.qualification;
+
+  if(msg.includes("food")) return memory.food;
+
+  if(msg.includes("sport")) return memory.sport;
+
+  if(msg.includes("height")) return memory.height;
+
+  if(msg.includes("who is shahzaman")) return "My owner 😎";
+
+  if(msg.includes("hi") || msg.includes("hello")) return "Hello sir 😎🔥";
+
+  if(msg.includes("who are you")) return "I am a Personal AI of mr Shahzaman 🤖";
+
+  return "Sorry 😅 I don't understand.";
+}
+
+</script>
+
+</body>
+</html>
